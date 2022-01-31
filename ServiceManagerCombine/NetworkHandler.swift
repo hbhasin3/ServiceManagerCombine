@@ -67,6 +67,10 @@ class NetworkHandler {
         debugPrint("Response of \(Type.self):", self.convertDictToJSON(dict: dict))
     }
     
+    fileprivate func convertMutableDataToJSON(model: NSMutableData) -> NSString {
+        return NSString(data: model as Data, encoding: String.Encoding.utf8.rawValue) ?? ""
+    }
+    
     fileprivate func debugPrintRequest(apiRequest: RequestModel) {
         
         debugPrint("URL: ", apiRequest.url.description)
@@ -85,6 +89,10 @@ class NetworkHandler {
         
         if let getBody = apiRequest.getRequestParameters {
             debugPrint("Get Body: ", self.convertDictToJSON(dict: getBody))
+        }
+        
+        if let getBody = apiRequest.multipartFormDataRequest {
+            debugPrint("Multipart Body: ", self.convertMutableDataToJSON(model: getBody.body))
         }
     }
 }
