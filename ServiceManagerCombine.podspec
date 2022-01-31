@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "ServiceManagerCombine"
-spec.version      = "1.0.0"
+spec.version      = "1.0.1"
 spec.summary      = "Service Manager written purely on UrlSession and Combine."
 
 spec.description  = <<-DESC
